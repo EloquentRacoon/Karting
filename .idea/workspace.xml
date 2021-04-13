@@ -4,6 +4,27 @@
     <list default="true" id="ed1dd0ca-1c2b-4bfe-9dac-7f065dd8d514" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/karting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/karting.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/.idea/New folder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/.idea/New folder.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/.env" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Form/ActiviteitType.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Form/ActiviteitType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Repository/ActiviteitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Repository/ActiviteitRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker/kartactiviteiten.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker/kartactiviteiten.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker/registreren.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker/registreren.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/deelnemer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/deelnemer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/deelnemer/activiteiten.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/deelnemer/activiteiten.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/activiteiten.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/activiteiten.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/beheer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/beheer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/details.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/details.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +133,7 @@
     <option name="width" value="1346" />
     <option name="height" value="780" />
   </component>
-  <component name="ProjectId" id="1qnAiBVGDDnjKPr7BJKe0nQHXhD" />
+  <component name="ProjectId" id="1qYylsAecwNEN0nMwiVlBsH9uZi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -156,21 +177,21 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../New folder" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/New folder" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MAMP\htdocs\karting\web\js" />
+      <recent name="C:\MAMP\htdocs\karting\app\Resources\views" />
+      <recent name="C:\MAMP\htdocs\karting\app\Resources\views\bezoeker" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\MAMP\htdocs\karting\web\img" />
       <recent name="C:\MAMP\htdocs\karting\app\Resources\views" />
       <recent name="C:\MAMP\htdocs\karting\web" />
       <recent name="C:\MAMP\htdocs\karting\web\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\MAMP\htdocs\karting\web\js" />
-      <recent name="C:\MAMP\htdocs\karting\app\Resources\views" />
-      <recent name="C:\MAMP\htdocs\karting\app\Resources\views\bezoeker" />
     </key>
   </component>
   <component name="RunManager">
@@ -208,7 +229,8 @@
       <workItem from="1517226141201" duration="951000" />
       <workItem from="1518030977442" duration="778000" />
       <workItem from="1518031779258" duration="1917000" />
-      <workItem from="1617705107806" duration="4494000" />
+      <workItem from="1617270982711" duration="864000" />
+      <workItem from="1618310024986" duration="5009000" />
     </task>
     <task id="LOCAL-00001" summary="geen">
       <created>1518034348398</created>
@@ -262,6 +284,20 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>

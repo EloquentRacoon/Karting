@@ -1,0 +1,19 @@
+{% extends 'bezoeker.html.twig' %}
+
+{% block menu %}
+    <li><a href="{{ path('homepage') }}">home</a></li>
+    <li><a href="{{ path('kartactiviteiten') }}">aanbod</a></li>
+    <li class="active"><a href="{{ path('registreren') }}">registreren</a></li>
+    <li><a href="#">contact</a></li>
+{% endblock %}
+
+{% block content %}
+    <h3>Registreren</h3>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn">Submit</button>
+    {{ form_end(form) }}
+
+
+{% endblock %}

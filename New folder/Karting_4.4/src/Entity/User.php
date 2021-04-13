@@ -179,7 +179,7 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -191,7 +191,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPlainPassword(): string
+    public function getPlainPassword(): ?string
     {
         return $this->plainPassword;
     }
@@ -203,7 +203,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getVoorletters(): string
+    public function getVoorletters(): ?string
     {
         return $this->voorletters;
     }
@@ -215,7 +215,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getTussenvoegsel(): string
+    public function getTussenvoegsel(): ?string
     {
         return $this->tussenvoegsel;
     }
@@ -227,7 +227,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAchternaam(): string
+    public function getAchternaam(): ?string
     {
         return $this->achternaam;
     }
@@ -239,7 +239,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAdres(): string
+    public function getAdres(): ?string
     {
         return $this->adres;
     }
@@ -251,7 +251,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPostcode(): string
+    public function getPostcode(): ?string
     {
         return $this->postcode;
     }
@@ -263,7 +263,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getWoonplaats(): string
+    public function getWoonplaats(): ?string
     {
         return $this->woonplaats;
     }
@@ -275,7 +275,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getTelefoon(): string
+    public function getTelefoon(): ?string
     {
         return $this->telefoon;
     }

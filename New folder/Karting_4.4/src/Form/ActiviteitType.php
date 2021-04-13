@@ -15,7 +15,6 @@ class ActiviteitType extends AbstractType
             ->add('datum')
             ->add('tijd')
             ->add('soortactiviteit')
-            ->add('users')
         ;
     }
 
