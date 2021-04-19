@@ -32,10 +32,10 @@
                     </td>
 
                     <td>
-                        {{ activiteit.soort.naam}}
+                        {{ activiteit.soortActiviteit.naam}}
                     </td>
                     <td>
-                        &euro;{{ activiteit.soort.prijs|number_format(2,',','.')}}
+                        &euro;{{ activiteit.soortActiviteit.prijs|number_format(2,',','.')}}
                     </td>
                     <td title="schrijf in voor activiteit">
 
@@ -73,10 +73,10 @@
                     </td>
 
                     <td>
-                        {{ activiteit.soort.naam}}
+                        {{ activiteit.soortActiviteit.naam}}
                     </td>
                     <td>
-                        &euro;{{ activiteit.soort.prijs|number_format(2,',','.')}}
+                        &euro;{{ activiteit.soortActiviteit.prijs|number_format(2,',','.')}}
                     </td>
                     <td title="schrijf in voor activiteit">
                         <a href="{{ path('uitschrijven', {'id':activiteit.id}) }}" >

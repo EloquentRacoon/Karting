@@ -42,14 +42,12 @@ class BezoekerController extends AbstractController
     public function registreren(Request $request,UserPasswordEncoderInterface $passwordEncoder)
     {
         // 1) build the form
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        $form->add('save', SubmitType::class, array('label'=>"registreren"));
-        // 2) handle the submit (will only happen on POST)
-        $form->handleRequest($request);
 
+        $form = $this->createForm(UserType::class);
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
+            $user = $form->getData();
             // 2.5) Is the user new, gebruikersnaam moet uniek zijn
             $repository=$this->getDoctrine()->getRepository(User::class);
             $bestaande_user=$repository->findOneBy(['username'=>$form->getData()->getUsername()]);
@@ -57,7 +55,7 @@ class BezoekerController extends AbstractController
             if($bestaande_user==null)
             {
                 // 3) Encode the password (you could also do this via Doctrine listener)
-                $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+                $password = $passwordEncoder->encodePassword($user, $user->getPassword());
                 $user->setPassword($password);
                 $user->setRoles(['ROLE_USER']);
                 // 4) save the User!
@@ -89,32 +87,34 @@ class BezoekerController extends AbstractController
         ]);
     }
     /**
-     * @Route("/login", name="login")
+     * @Route("/login", name="app_login")
      */
-    public function loginAction(Request $request, AuthenticationUtils $authUtils)
+    public function login(AuthenticationUtils $authenticationUtils): Response
     {
+
+         switch ($this->getUser()->getRoles()){
+             case "ROLE_ADMIN":
+                 return $this->redirectToRoute('mederwerker');
+             case "ROLE_USER":
+                 return $this->redirectToRoute('activiteiten');
+         }
+
         // get the login error if there is one
-        $error = $authUtils->getLastAuthenticationError();
-
+        $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
-        $lastUsername = $authUtils->getLastUsername();
-        if (isset($error)) {
-            $this->addFlash(
-                'error',
-                'Gegevens kloppen niet. Probeer opnieuw.'
-            );
-        } else {
+        $lastUsername = $authenticationUtils->getLastUsername();
 
-            $this->addFlash(
-                'notice',
-                'Vul uw gegevens in'
-            );
-        }
-        return $this->render('bezoeker/login.html.twig', array(
-            'last_username' => $lastUsername,
-            'error'         => $error,
-        ));
+        return $this->render('bezoeker/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
+
+    /**
+     * @Route("/logout", name="app_logout")
+     */
+    public function logout()
+    {
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+    }
+
     /**
      * @Route("nieuwSoortActiviteit", name="nieuwSoortActiviteit")
      */

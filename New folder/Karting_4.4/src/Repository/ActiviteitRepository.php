@@ -46,7 +46,7 @@ class ActiviteitRepository extends ServiceEntityRepository
         $totaal=0;
         foreach($activiteiten as $a)
         {
-            $totaal+=$a->getSoort()->getPrijs();
+            $totaal+=$a->getSoortActiviteit()->getPrijs();
         }
         return $totaal;
 

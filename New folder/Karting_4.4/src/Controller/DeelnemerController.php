@@ -3,12 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Activiteit;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-
+/**
+ * Class DeelnemerController
+ * @package App\Controller
+ * @IsGranted("ROLE_USER")
+ */
 class DeelnemerController extends AbstractController
 {
+
     /**
      * @Route("/user/activiteiten", name="activiteiten")
      */
@@ -46,7 +52,7 @@ class DeelnemerController extends AbstractController
             ->getRepository(Activiteit::class)
             ->find($id);
         $usr= $this->get('security.token_storage')->getToken()->getUser();
-        $usr->addActiviteit($activiteit);
+        $usr->addActiviteiten($activiteit);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($usr);
@@ -61,10 +67,10 @@ class DeelnemerController extends AbstractController
     public function uitschrijvenActiviteitAction($id)
     {
         $activiteit = $this->getDoctrine()
-            ->getRepository('activiteit')
+            ->getRepository(Activiteit::class)
             ->find($id);
         $usr= $this->get('security.token_storage')->getToken()->getUser();
-        $usr->removeActiviteit($activiteit);
+        $usr->removeActiviteiten($activiteit);
         $em = $this->getDoctrine()->getManager();
         $em->persist($usr);
         $em->flush();

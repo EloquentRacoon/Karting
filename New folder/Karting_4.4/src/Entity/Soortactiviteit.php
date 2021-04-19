@@ -6,6 +6,7 @@ use App\Repository\SoortactiviteitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @ORM\Entity(repositoryClass=SoortactiviteitRepository::class)
@@ -35,7 +36,7 @@ class Soortactiviteit
     private $tijdsduur;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer", length=255)
      */
     private $prijs;
 
@@ -90,12 +91,12 @@ class Soortactiviteit
         return $this;
     }
 
-    public function getPrijs(): ?string
+    public function getPrijs(): ?int
     {
         return $this->prijs;
     }
 
-    public function setPrijs(string $prijs): self
+    public function setPrijs(int $prijs): self
     {
         $this->prijs = $prijs;
 

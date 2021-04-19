@@ -6,12 +6,13 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\Table(name="`user`")
+ * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
  */
 class User implements UserInterface
 {
@@ -34,7 +35,7 @@ class User implements UserInterface
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
@@ -45,12 +46,6 @@ class User implements UserInterface
      * @Assert\NotBlank(message="vul emailadres in")
      */
     private $email;
-
-    /**
-     * @Assert\Length(max=4096)
-     * @Assert\NotBlank(message="vul wachtwoord in")
-     */
-    private $plainPassword;
 
     /**
      * @ORM\Column(type="string", length=10)
@@ -191,18 +186,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPlainPassword(): ?string
-    {
-        return $this->plainPassword;
-    }
-
-    public function setPlainPassword(string $plainPassword): self
-    {
-        $this->plainPassword = $plainPassword;
-
-        return $this;
-    }
-
     public function getVoorletters(): ?string
     {
         return $this->voorletters;
@@ -312,5 +295,10 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    function getNaam()
+    {
+        return $this->voorletters." ".$this->tussenvoegsel." ".$this->achternaam;
     }
 }
