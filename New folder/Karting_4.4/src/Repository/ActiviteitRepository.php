@@ -40,6 +40,7 @@ class ActiviteitRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
+
     public function getTotaal($activiteiten)
     {
 

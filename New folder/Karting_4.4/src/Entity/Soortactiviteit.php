@@ -84,7 +84,7 @@ class Soortactiviteit
         return $this->tijdsduur;
     }
 
-    public function setTijdsduur(\DateTimeInterface $tijdsduur): self
+    public function setTijdsduur(?\DateTimeInterface $tijdsduur): self
     {
         $this->tijdsduur = $tijdsduur;
 

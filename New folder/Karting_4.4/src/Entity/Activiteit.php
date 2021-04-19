@@ -55,36 +55,36 @@ class Activiteit
         return $this->id;
     }
 
-    public function getDatum(): \DateTimeInterface
+    public function getDatum(): ?DateTimeInterface
     {
         return $this->datum;
     }
 
-    public function setDatum(\DateTimeInterface $datum): self
+    public function setDatum(?DateTimeInterface $datum): self
     {
         $this->datum = $datum;
 
         return $this;
     }
 
-    public function getTijd(): \DateTimeInterface
+    public function getTijd(): ?DateTimeInterface
     {
         return $this->tijd;
     }
 
-    public function setTijd(\DateTimeInterface $tijd): self
+    public function setTijd(?DateTimeInterface $tijd): self
     {
         $this->tijd = $tijd;
 
         return $this;
     }
 
-    public function getSoortactiviteit(): Soortactiviteit
+    public function getSoortactiviteit(): ?Soortactiviteit
     {
         return $this->soortactiviteit;
     }
 
-    public function setSoortactiviteit(Soortactiviteit $soortactiviteit): self
+    public function setSoortactiviteit(?Soortactiviteit $soortactiviteit): self
     {
         $this->soortactiviteit = $soortactiviteit;
 

@@ -92,12 +92,14 @@ class BezoekerController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
 
-         switch ($this->getUser()->getRoles()){
-             case "ROLE_ADMIN":
-                 return $this->redirectToRoute('mederwerker');
-             case "ROLE_USER":
-                 return $this->redirectToRoute('activiteiten');
-         }
+        if ($this->getUser()){
+            switch ($this->getUser()->getRoles()){
+                case "ROLE_ADMIN":
+                    return $this->redirectToRoute('mederwerker');
+                case "ROLE_USER":
+                    return $this->redirectToRoute('activiteiten');
+            }
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();

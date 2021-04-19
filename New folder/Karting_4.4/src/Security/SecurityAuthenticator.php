@@ -98,8 +98,12 @@ class SecurityAuthenticator extends AbstractFormLoginAuthenticator implements Pa
             return new RedirectResponse($targetPath);
         }
 
-
-        return new RedirectResponse($this->urlGenerator->generate('activiteiten'));
+        switch ($token->getUser()->getRoles()[0]){
+            case "ROLE_ADMIN":
+                return new RedirectResponse($this->urlGenerator->generate('activiteitenoverzicht'));
+            case "ROLE_USER":
+                return new RedirectResponse($this->urlGenerator->generate('activiteiten'));
+        }
     }
 
     protected function getLoginUrl()

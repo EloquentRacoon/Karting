@@ -19,8 +19,8 @@ class ActiviteitType extends AbstractType
     {
         $builder
             ->add('datum', DateType::class, ['attr' => ['class' => 'js-datepicker', 'placeholder'=>'dd-mm-yyyy'],
-            'widget'=>'single_text', 'html5' => false, 'format'=> 'dd-MM-yyyy'
-               ])
+                'widget'=>'single_text', 'html5' => false, 'format'=> 'dd-MM-yyyy'
+            ])
             ->add('tijd', TimeType::class, ['attr' => ['class' => 'js-timepicker', 'placeholder'=>'hh:mm'],
                 'widget'=>'single_text','html5' => false,])
             ->add('soort', EntityType::class,

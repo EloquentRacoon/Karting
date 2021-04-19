@@ -3,12 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="ed1dd0ca-1c2b-4bfe-9dac-7f065dd8d514" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Controller/BezoekerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Controller/BezoekerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/bezoeker/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Controller/MedewerkerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Controller/MedewerkerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Entity/Activiteit.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Entity/Activiteit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Entity/Soortactiviteit.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Entity/Soortactiviteit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Form/ActiviteitType.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Form/ActiviteitType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Repository/ActiviteitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Repository/ActiviteitRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/src/Security/SecurityAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/src/Security/SecurityAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/activiteiten.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/activiteiten.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/beheer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/beheer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/details.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/Karting_4.4/templates/medewerker/details.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/ActiviteitType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Form/ActiviteitType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +228,7 @@
       <workItem from="1618401215240" duration="613000" />
       <workItem from="1618477723114" duration="2133000" />
       <workItem from="1618517563722" duration="1744000" />
+      <workItem from="1618831338430" duration="2774000" />
     </task>
     <task id="LOCAL-00001" summary="geen">
       <created>1518034348398</created>
