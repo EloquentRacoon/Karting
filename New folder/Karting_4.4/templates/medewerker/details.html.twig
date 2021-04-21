@@ -2,7 +2,13 @@
 
 {% block menu %}
     <li><a href="{{ path('activiteitenoverzicht') }}">home</a></li>
-    <li><a href="{{ path('beheer') }}"><span class="badge">{{ aantal }}</span>beheer</a></li>
+    <li class="nav-item dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown" >beheer</a>
+        <ul class="dropdown-menu">
+            <li><a class="nav-item dropdown-item" href="{{ path('beheer_activiteit') }}">beheer activiteiten</a></li>
+            <li><a class="nav-item dropdown-item" href="{{ path('beheer_soortactiviteit') }}">beheer soortactiviteiten</a></li>
+        </ul>
+    </li>
 {% endblock %}
 {% block content %}
 

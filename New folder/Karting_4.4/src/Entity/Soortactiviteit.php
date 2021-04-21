@@ -36,7 +36,7 @@ class Soortactiviteit
     private $tijdsduur;
 
     /**
-     * @ORM\Column(type="integer", length=255)
+     * @ORM\Column(type="float", scale=2, length=255)
      */
     private $prijs;
 
@@ -44,6 +44,12 @@ class Soortactiviteit
      * @ORM\OneToMany(targetEntity=Activiteit::class, mappedBy="soortactiviteit")
      */
     private $activiteit;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $beschrijving;
+
 
     public function __construct()
     {
@@ -91,12 +97,12 @@ class Soortactiviteit
         return $this;
     }
 
-    public function getPrijs(): ?int
+    public function getPrijs(): ?float
     {
         return $this->prijs;
     }
 
-    public function setPrijs(int $prijs): self
+    public function setPrijs(float $prijs): self
     {
         $this->prijs = $prijs;
 
@@ -129,6 +135,18 @@ class Soortactiviteit
                 $activiteit->setSoortactiviteit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getBeschrijving(): ?string
+    {
+        return $this->beschrijving;
+    }
+
+    public function setBeschrijving(string $beschrijving): self
+    {
+        $this->beschrijving = $beschrijving;
 
         return $this;
     }

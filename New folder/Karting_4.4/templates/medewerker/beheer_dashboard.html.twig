@@ -2,7 +2,7 @@
 
 {% block menu %}
     <li><a href="{{ path('activiteitenoverzicht') }}">home</a></li>
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown active">
         <a class="dropdown-toggle" href="#" data-toggle="dropdown" >beheer</a>
         <ul class="dropdown-menu">
             <li><a class="nav-item dropdown-item" href="{{ path('beheer_activiteit') }}">beheer activiteiten</a></li>
@@ -11,13 +11,15 @@
     </li>
 {% endblock %}
 
-
 {% block content %}
-    <h3>{{ actie }}</h3>
-
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
-
-
+    <table class="table">
+        <tr>
+            <td class="text-center">
+                <button class="btn "><a href="{{ path('beheer_activiteit') }}">beheer activiteiten</a></button>
+            </td>
+            <td class="text-center">
+                <button class="btn"><a href="{{ path('beheer_soortactiviteit') }}">beheer soortactiviteiten</a></button>
+            </td>
+        </tr>
+    </table>
 {% endblock %}

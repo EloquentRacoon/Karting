@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Activiteit;
 use App\Entity\Soortactiviteit;
 use App\Entity\User;
 use App\Form\UserType;
@@ -32,9 +33,11 @@ class BezoekerController extends AbstractController
      */
     public function kartactiviteitenAction()
     {
-        $repository=$this->getDoctrine()->getRepository(Soortactiviteit::class);
-        $soortactiviteiten=$repository->findAll();
-        return $this->render('bezoeker/kartactiviteiten.html.twig',array('boodschap'=>'Welkom','soortactiviteiten'=>$soortactiviteiten));
+        $soortactiviteiten=$this->getDoctrine()->getRepository(Soortactiviteit::class)->findAll();;
+        return $this->render('bezoeker/kartactiviteiten.html.twig',[
+            'boodschap'=>'Welkom',
+            'soortactiviteiten'=>$soortactiviteiten
+        ]);
     }
     /**
      * @Route("registreren", name="registreren")
@@ -115,27 +118,6 @@ class BezoekerController extends AbstractController
     public function logout()
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
-    }
-
-    /**
-     * @Route("nieuwSoortActiviteit", name="nieuwSoortActiviteit")
-     */
-    public function nieuweSoortActiviteitToevoegenAction(Request $request)
-    {
-        $soortAct = new \AppBundle\Entity\Soortactiviteit();
-        $soortAct->setNaam('Geef een naam op!');
-
-        $form = $this->createForm(ActiviteitType::class,$soortAct);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $soortAct = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($soortAct);
-            $em->flush();
-            return $this->redirectToRoute('kartactiviteiten');
-        }
-        return $this->render('admin/nieuwSA.html.twig',array('boodschap'=>'Voeg een nieuwe Activiteit toe','form'=>$form->createView(),));
     }
 
 }

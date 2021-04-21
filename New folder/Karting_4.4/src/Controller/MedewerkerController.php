@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Activiteit;
+use App\Entity\Soortactiviteit;
 use App\Entity\User;
 use App\Form\ActiviteitType;
+use App\Form\SoortactiviteitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -68,15 +70,29 @@ class MedewerkerController extends AbstractController
             ->getRepository(Activiteit::Class)
             ->findAll();
 
-        return $this->render('medewerker/beheer.html.twig', [
+        return $this->render('medewerker/beheer_dashboard.html.twig', [
             'activiteiten' => $activiteiten
         ]);
     }
 
     /**
-     * @Route("/admin/add", name="add")
+     * @Route("/admin/beheer/activiteit", name="beheer_activiteit")
      */
-    public function addAction(Request $request)
+    public function beheerActiviteitenAction()
+    {
+        $activiteiten = $this->getDoctrine()
+            ->getRepository(Activiteit::Class)
+            ->findAll();
+
+        return $this->render('medewerker/beheer_activiteiten.html.twig', [
+            'activiteiten' => $activiteiten
+        ]);
+    }
+
+    /**
+     * @Route("/admin/add/activiteit", name="add_activiteit")
+     */
+    public function addActiviteitAction(Request $request)
     {
         $form = $this->createForm(ActiviteitType::class);
         $form->add('save', SubmitType::class, array('label' => "voeg toe"));
@@ -93,7 +109,7 @@ class MedewerkerController extends AbstractController
                 'notice',
                 'activiteit toegevoegd!'
             );
-            return $this->redirectToRoute('beheer');
+            return $this->redirectToRoute('beheer_activiteit');
         }
         $activiteiten = $this->getDoctrine()
             ->getRepository(Activiteit::Class)
@@ -101,21 +117,20 @@ class MedewerkerController extends AbstractController
 
         return $this->render('medewerker/add.html.twig', [
             'form' => $form->createView(),
-            'naam' => 'toevoegen',
-            'aantal' => count($activiteiten)
+            'actie' => 'Soortactiviteit toevoegen',
         ]);
     }
 
     /**
-     * @Route("/admin/update/{id}", name="update")
+     * @Route("/admin/update/activiteit/{id}", name="update_activiteit")
      */
-    public function updateAction($id, Request $request)
+    public function updateActiviteitAction($id, Request $request)
     {
-        $a = $this->getDoctrine()
+        $activiteit = $this->getDoctrine()
             ->getRepository(Activiteit::Class)
             ->find($id);
 
-        $form = $this->createForm(ActiviteitType::class, $a);
+        $form = $this->createForm(ActiviteitType::class, $activiteit);
         $form->add('save', SubmitType::class, array('label' => "aanpassen"));
 
         $form->handleRequest($request);
@@ -124,7 +139,7 @@ class MedewerkerController extends AbstractController
             $em = $this->getDoctrine()->getManager();
 
             // tells Doctrine you want to (eventually) save the contact (no queries yet)
-            $em->persist($a);
+            $em->persist($activiteit);
 
 
             // actually executes the queries (i.e. the INSERT query)
@@ -133,32 +148,125 @@ class MedewerkerController extends AbstractController
                 'notice',
                 'activiteit aangepast!'
             );
-            return $this->redirectToRoute('beheer');
+            return $this->redirectToRoute('beheer_activiteit');
         }
 
         $activiteiten = $this->getDoctrine()
             ->getRepository(Activiteit::Class)
             ->findAll();
 
-        return $this->render('medewerker/add.html.twig', array('form' => $form->createView(), 'naam' => 'aanpassen', 'aantal' => count($activiteiten)));
+        return $this->render('medewerker/add.html.twig',[
+            'form' => $form->createView(),
+            'actie' => 'Soortactiviteit toevoegen',
+            ]);
     }
 
     /**
-     * @Route("/admin/delete/{id}", name="delete")
+     * @Route("/admin/delete/activiteit/{id}", name="delete_activiteit")
      */
-    public function deleteAction($id)
+    public function deleteActiviteitAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $a = $this->getDoctrine()
+        $activiteit = $this->getDoctrine()
             ->getRepository(Activiteit::Class)->find($id);
-        $em->remove($a);
+        $em->remove($activiteit);
         $em->flush();
 
         $this->addFlash(
             'notice',
             'activiteit verwijderd!'
         );
-        return $this->redirectToRoute('beheer');
+        return $this->redirectToRoute('beheer_activiteit');
+    }
 
+    /**
+     * @Route("/admin/beheer/soortactiviteit", name="beheer_soortactiviteit")
+     */
+    public function beheerSoortactiviteitenAction()
+    {
+        $soortactiviteiten = $this->getDoctrine()
+            ->getRepository(Soortactiviteit::Class)
+            ->findAll();
+
+        return $this->render('medewerker/beheer_soortactiviteiten.html.twig', [
+            'soortactiviteiten' => $soortactiviteiten
+        ]);
+    }
+
+    /**
+     * @Route("/admin/add/soortactiviteit", name="add_soortactiviteit")
+     */
+    public function addSoortactiviteitAction(Request $request)
+    {
+
+        $form = $this->createForm(SoortactiviteitType::class);
+        $form->add('save', SubmitType::class, array('label' => "voeg toe"));
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $soortactiviteit = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($soortactiviteit);
+            $em->flush();
+            return $this->redirectToRoute('beheer_soortactiviteit');
+        }
+        return $this->render('medewerker/add.html.twig',[
+            'actie' => 'Soortactiviteit toevoegen',
+            'form'=>$form->createView(),
+            ]);
+    }
+
+    /**
+     * @Route("/admin/update/soortactiviteit/{id}", name="update_soortactiviteit")
+     */
+    public function updateSoortactiviteitAction($id, Request $request)
+    {
+        $soortactiviteit = $this->getDoctrine()
+            ->getRepository(Soortactiviteit::Class)
+            ->find($id);
+
+        $form = $this->createForm(SoortactiviteitType::class, $soortactiviteit);
+        $form->add('save', SubmitType::class, ['label' => "aanpassen"]);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($soortactiviteit);
+
+            $em->flush();
+            $this->addFlash(
+                'notice',
+                'soortactiviteit aangepast!'
+            );
+            return $this->redirectToRoute('beheer_soortactiviteit');
+        }
+
+        $activiteiten = $this->getDoctrine()
+            ->getRepository(Soortactiviteit::Class)
+            ->findAll();
+
+        return $this->render('medewerker/add.html.twig', [
+            'form' => $form->createView(),
+            'actie' => 'Soortactiviteit aanpassen',
+            ]);
+    }
+    /**
+     * @Route("/admin/delete/soortactiviteit/{id}", name="delete_soortactiviteit")
+     */
+    public function deleteSoortactiviteitAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $soortactiviteit = $this->getDoctrine()
+            ->getRepository(Soortactiviteit::Class)->find($id);
+        $em->remove($soortactiviteit);
+        $em->flush();
+
+        $this->addFlash(
+            'notice',
+            'activiteit verwijderd!'
+        );
+        return $this->redirectToRoute('beheer_soortactiviteit');
     }
 }
