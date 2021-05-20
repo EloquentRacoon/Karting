@@ -1,0 +1,47 @@
+{% extends 'medewerker.html.twig' %}
+
+{% block menu %}
+    <li><a href="{{ path('activiteitenoverzicht') }}">home</a></li>
+    <li class="nav-item dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown" >beheer</a>
+        <ul class="dropdown-menu">
+            <li><a class="nav-item dropdown-item" href="{{ path('beheer_activiteit') }}">beheer activiteiten</a></li>
+            <li><a class="nav-item dropdown-item" href="{{ path('beheer_soortactiviteit') }}">beheer soortactiviteiten</a></li>
+        </ul>
+    </li>
+    <li class="active"><a href="{{ path('deelnemer_overzicht') }}">deelnemers</a></li>
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <tr>
+            <th>Naam</th>
+            <th>Email</th>
+            <th>Adres</th>
+            <th>Postcode</th>
+            <th>Woonplaats</th>
+            <th>Telefoon nummer</th>
+            <th colspan="2">Actie</th>
+        </tr>
+        {% for deelnemer in deelnemers %}
+            <tr>
+                <td>{{ deelnemer.voorletters|capitalize }} {{ deelnemer.tussenvoegsel }} {{ deelnemer.achternaam|capitalize }}</td>
+                <td>{{ deelnemer.email }}</td>
+                <td>{{ deelnemer.adres|capitalize }}</td>
+                <td>{{ deelnemer.postcode }}</td>
+                <td>{{ deelnemer.woonplaats }}</td>
+                <td>{{ deelnemer.telefoon }}</td>
+                <td >
+                    <a href="{{ path('delete_deelnemer',{'id':deelnemer.id}) }}">
+                        <button class="btn btn-danger">verwijder</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ path('reset_deelnemer_wachtwoord',{'id':deelnemer.id}) }}">
+                        <button class="btn btn-danger">reset wachtwoord</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

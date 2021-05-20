@@ -1,0 +1,126 @@
+{% extends 'deelnemer.html.twig' %}
+{% block menu %}
+    <li class="active"><a href="{{ path('activiteiten') }}">home</a></li>
+    <li><a href="{{ path('gegevens') }}">gegevens</a></li>
+
+{% endblock %}
+
+{% block content %}
+    <section>
+        <table class="table" style="table-layout: fixed">
+            <caption>
+                Dit zijn alle beschikbare activiteiten
+            </caption>
+            <thead>
+            <tr>
+                <td>datum</td>
+                <td>tijd</td>
+                <td>soort activiteit</td>
+                <td>prijs</td>
+                <td>deelnemers</td>
+                <td>schrijf in</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for activiteit in beschikbare_activiteiten %}
+                {% if activiteit.datum >= datum %}
+                    <tr>
+                    {% if activiteit.inschrijvingen == activiteit.plaatsen %}
+                        <tr class="danger">
+                    {% endif %}
+                        <td>
+                            {{ activiteit.datum|date("d-m-Y") }}
+                        </td>
+                        <td>
+                            {{ activiteit.tijd|date("H:i") }}
+                        </td>
+                        <td>
+                            {{ activiteit.soortActiviteit.naam }}
+                        </td>
+                        <td>
+                            &euro;{{ activiteit.soortActiviteit.prijs|number_format(2,',','.') }}
+                        </td>
+                        <td>
+                            {{ activiteit.inschrijvingen }}/{{ activiteit.plaatsen }}
+                        </td>
+                        {% if activiteit.inschrijvingen == activiteit.plaatsen %}
+                            <td title="schrijf in voor activiteit">
+                                Vol
+                            </td>
+                        {% else %}
+                            <td title="schrijf in voor activiteit">
+                                <a href="{{ path('inschrijven', {'id':activiteit.id}) }}">
+                                    <span class="glyphicon glyphicon-plus" style="color:red"></span>
+                                </a>
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <table class="table" style="table-layout: fixed">
+            <caption>
+                Dit zijn de door jou ingeschreven activiteiten
+            </caption>
+            <thead>
+            <tr>
+                <td>datum</td>
+                <td>tijd</td>
+                <td>soort activiteit</td>
+                <td>prijs</td>
+                <td>deelnemers</td>
+                <td>schrijf uit</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for activiteit in ingeschreven_activiteiten %}
+                {% if activiteit.datum >= datum %}
+                <tr>
+                    <td>
+                        {{ activiteit.datum|date("d-m-Y") }}
+                    </td>
+                    <td>
+                        {{ activiteit.tijd|date("H:i") }}
+                    </td>
+
+                    <td>
+                        {{ activiteit.soortActiviteit.naam }}
+                    </td>
+                    <td>
+                        &euro;{{ activiteit.soortActiviteit.prijs|number_format(2,',','.') }}
+                    </td>
+                    <td>
+                        {{ activiteit.inschrijvingen }}/{{ activiteit.plaatsen }}
+                    </td>
+                    <td title="schrijf in voor activiteit">
+                        <a href="{{ path('uitschrijven', {'id':activiteit.id}) }}">
+                            <span class="glyphicon glyphicon-minus" style="color:red"></span>
+                        </a>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                    Totaal prijs:
+                </td>
+                <td>
+                    &euro;{{ totaal|number_format(2,',','.') }}
+
+                </td>
+                <td>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+
+{% endblock %}
